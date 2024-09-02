@@ -5,6 +5,7 @@
 
 - Node.js v22.7.0
 - npm 10.8.2
+- tsc 5.5.4
 
 ### Usage Instructions
 
