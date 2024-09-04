@@ -35,6 +35,11 @@ describe('Customer', () => {
       expect(customer.getBalance()).toBe(700);
     });
 
+    it('should throw an error when amount is negative', () => {
+      const customer = new Customer('John Doe', 100);
+      expect(() => customer.withdraw(-100)).toThrow('Withdraw amount must be non-negative');
+    });
+
     it('should throw an error when withdrawing more than the balance', () => {
       const customer = new Customer('Jane Smith', 500);
       expect(() => customer.withdraw(600)).toThrow('Insufficient funds');

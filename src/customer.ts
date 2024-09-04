@@ -26,6 +26,9 @@ export class Customer {
   }
 
   public withdraw(amount: number): void {
+    if (amount < 0) {
+      throw new Error('Withdraw amount must be non-negative');
+    }
     if (amount > this.balance) {
       throw new Error('Insufficient funds');
     } else {
