@@ -17,4 +17,11 @@ export class Customer {
   public getBalance() {
     return this.balance;
   }
+
+  public deposit(amount: number): void {
+    if (amount < 0) {
+      throw new Error('Deposit amount must be non-negative');
+    }
+    this.balance += amount;
+  }
 }

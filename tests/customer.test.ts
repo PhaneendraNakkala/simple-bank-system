@@ -15,4 +15,17 @@ describe('Customer', () => {
 
   });
 
+  describe('#deposit', () => {
+    it('should deposit money and update the balance', () => {
+      const customer = new Customer('Jane Doe', 500);
+      customer.deposit(200);
+      expect(customer.getBalance()).toBe(700);
+    });
+
+    it('should throw an error when amount is negative', () => {
+      const customer = new Customer('John Doe', 100);
+      expect(() => customer.deposit(-100)).toThrow('Deposit amount must be non-negative');
+    });
+  });
+
 });
