@@ -28,4 +28,19 @@ describe('Customer', () => {
     });
   });
 
+  describe('#withdraw', () => {
+    it('should withdraw money when balance is sufficient', () => {
+      const customer = new Customer('John Smith', 1000);
+      customer.withdraw(300);
+      expect(customer.getBalance()).toBe(700);
+    });
+
+    it('should throw an error when withdrawing more than the balance', () => {
+      const customer = new Customer('Jane Smith', 500);
+      expect(() => customer.withdraw(600)).toThrow('Insufficient funds');
+    });
+
+
+  })
+
 });

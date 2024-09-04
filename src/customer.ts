@@ -24,4 +24,12 @@ export class Customer {
     }
     this.balance += amount;
   }
+
+  public withdraw(amount: number): void {
+    if (amount > this.balance) {
+      throw new Error('Insufficient funds');
+    } else {
+      this.balance -= amount;
+    }
+  }
 }
