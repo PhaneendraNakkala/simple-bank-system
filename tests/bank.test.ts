@@ -12,4 +12,10 @@ describe('bank', () => {
     const bank = new Bank();
     expect(bank.getTotalBankBalance()).toBe(0);
   });
+
+  it('should throw an error when adding a customer with a negative initial deposit', () => {
+    const bank = new Bank();
+    expect(() => bank.addCustomer('John Doe', -100)).toThrow('Initial deposit must be non-negative');
+  });
+
 });
