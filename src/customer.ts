@@ -32,4 +32,9 @@ export class Customer {
       this.balance -= amount;
     }
   }
+
+  public transfer(amount: number, recipient: Customer): void {
+    this.withdraw(amount);
+    recipient.deposit(amount);
+  }
 }

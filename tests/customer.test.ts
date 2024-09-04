@@ -41,6 +41,23 @@ describe('Customer', () => {
     });
 
 
-  })
+  });
+
+  describe('#transfer', () => {
+    it('should transfer money between customers when balance is sufficient', () => {
+      const customer1 = new Customer('John Doe', 1000);
+      const customer2 = new Customer('Jane Doe', 500);
+      customer1.transfer(300, customer2);
+      expect(customer1.getBalance()).toBe(700);
+      expect(customer2.getBalance()).toBe(800);
+    });
+
+    it('should throw an error when transfer amount is greater than balance', () => {
+      const customer1 = new Customer('John Doe', 100);
+      const customer2 = new Customer('Jane Doe', 500);
+      expect(() => customer1.transfer(200, customer2)).toThrow('Insufficient funds');
+    });
+
+  });
 
 });
